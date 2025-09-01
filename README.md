@@ -59,6 +59,9 @@ node scripts/pushIndexNow.js --push
 ### Notes
 
 * Dry-run only prints new URLs
-* Ensure IndexNow key file is deployed:
-  `https://www.example.com/<INDEXNOW_KEY>.txt`
+
+* Ensure IndexNow key file is deployed: `https://www.example.com/<INDEXNOW_KEY>.txt`
+
 * Works for any static site with a sitemap
+
+* View [My Blog Post](https://liuhouliang.com/en/post/nextjs_indexnow/)

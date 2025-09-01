@@ -64,6 +64,9 @@ node scripts/pushIndexNow.js --push
 ### 注意事项
 
 * 本地 `--check` 只打印新增 URL，不会发送请求
+
 * 确保 IndexNow key 文件已部署：
-  `https://www.example.com/<INDEXNOW_KEY>.txt`
+ `https://www.example.com/<INDEXNOW_KEY>.txt`
 * 支持任意静态站点，只要生成 sitemap 即可
+
+* 欢迎查看 [我的博客文章](https://liuhouliang.com/post/nextjs_indexnow/)
