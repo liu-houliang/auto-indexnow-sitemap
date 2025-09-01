@@ -1,5 +1,7 @@
 # auto-indexnow-sitemap
+Auto push new pages to Bing IndexNow based on sitemap
 
+English | [简体中文](README.zh-CN.md)
 
 ### Features
 
@@ -8,6 +10,12 @@
 * Compare differences and push only new pages to Bing IndexNow
 * Supports `--check` dry-run to preview new URLs
 * Chunked submissions for large sites
+
+### Get IndexNow Key
+
+1. Open [Bing IndexNow](https://www.bing.com/indexnow/getstarted)
+2. Download the API key (the content is the key itself)
+3. Upload it to your website root, e.g.: `https://www.example.com/<YOUR_INDEXNOW_KEY>.txt`
 
 
 ### Usage
@@ -18,9 +26,13 @@
 2. Edit `scripts/pushIndexNow.js` config:
 
 * `SITE_URL`: your website domain
+
 * `INDEXNOW_KEY`: your IndexNow key
+
 * `SITEMAP_PATH`: path to local sitemap
+
 * `OLD_SITEMAP_URL`: URL of online sitemap
+
 * `CHUNK_SIZE`: max URLs per submission
 
 3. Dry-run locally:
