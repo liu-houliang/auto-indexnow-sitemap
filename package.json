@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build": "next build && next-sitemap && node scripts/pushToBing.js --push",
+    "build-dev": "next build && next-sitemap && node scripts/pushToBing.js --check"
+  }
+}
