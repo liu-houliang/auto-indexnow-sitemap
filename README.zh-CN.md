@@ -32,9 +32,9 @@
 
 * `INDEXNOW_KEY`：你的 IndexNow Key
 
-* `SITEMAP_PATH`：本地 sitemap 路径
+* `SITEMAP_FILES`：本地 sitemap 路径，支持多个文件
 
-* `OLD_SITEMAP_URL`：线上 sitemap URL
+* `OLD_SITEMAP_URLS`：线上 sitemap URL，支持多个URL
 
 * `CHUNK_SIZE`：每次提交 URL 数量
 

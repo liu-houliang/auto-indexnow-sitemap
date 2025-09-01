@@ -29,9 +29,9 @@ English | [简体中文](README.zh-CN.md)
 
 * `INDEXNOW_KEY`: your IndexNow key
 
-* `SITEMAP_PATH`: path to local sitemap
+* `SITEMAP_FILES`: path to local sitemap, support multiple files
 
-* `OLD_SITEMAP_URL`: URL of online sitemap
+* `OLD_SITEMAP_URLS`: URL of online sitemap, support multiple urls
 
 * `CHUNK_SIZE`: max URLs per submission
 

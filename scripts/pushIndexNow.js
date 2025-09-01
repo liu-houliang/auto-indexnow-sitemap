@@ -11,15 +11,22 @@
  */
 
 import fs from 'fs';
-import path from 'path';
 import process from 'process';
 
 // ====== Configuration ======
-const SITE_URL = 'https://www.example.com';         // Your website URL
-const INDEXNOW_KEY = 'your-indexnow-key';           // Your IndexNow Key
-const NEW_SITEMAP_FILE = path.join(process.cwd(), 'out', 'sitemap.xml');  // Local sitemap
-const OLD_SITEMAP_URL = `${SITE_URL}/sitemap.xml`;  // Online sitemap URL
-const CHUNK_SIZE = 1000;                             // Max URLs per push
+const SITE_URL = 'https://www.example.com';    
+
+const INDEXNOW_KEY = 'your-indexnow-key';    
+
+const SITEMAP_FILES = [
+  './out/sitemap.xml',
+];
+
+const OLD_SITEMAP_URLS = [
+  `${SITE_URL}/sitemap.xml`,
+];  
+
+const CHUNK_SIZE = 1000;                             
 
 // ====== Command-line args ======
 const args = process.argv.slice(2);
@@ -69,25 +76,24 @@ async function sendIndexNow(urls) {
 // ====== Main ======
 (async function main() {
   // 1. Read local sitemap.xml
-  if (!fs.existsSync(NEW_SITEMAP_FILE)) {
-    console.error('Local sitemap.xml not found:', NEW_SITEMAP_FILE);
-    process.exit(1);
+  const newUrls = [];
+  for (const file of SITEMAP_FILES) {
+    if (!fs.existsSync(file)) continue;
+    const xml = fs.readFileSync(file, 'utf-8');
+    newUrls.push(...parseSitemap(xml));
   }
-  const xml = fs.readFileSync(NEW_SITEMAP_FILE, 'utf-8');
-  const newUrls = parseSitemap(xml);
 
   // 2. Fetch online sitemap.xml
   let oldUrls = [];
-  try {
-    const res = await fetch(OLD_SITEMAP_URL);
-    if (res.ok) {
-      const oldXml = await res.text();
-      oldUrls = parseSitemap(oldXml);
-    } else {
-      console.warn('Online sitemap.xml not found (HTTP', res.status, '). Assuming all URLs are new.');
+  for (const url of OLD_SITEMAP_URLS) {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) continue;
+      const xml = await res.text();
+      oldUrls.push(...parseSitemap(xml));
+    } catch(e) {
+      console.warn('Failed to fetch', url);
     }
-  } catch (e) {
-    console.warn('Error fetching online sitemap.xml. Assuming all URLs are new.', e.message);
   }
 
   // 3. Compute difference (new URLs)
