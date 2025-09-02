@@ -70,10 +70,16 @@ const fs = require('fs');
 const process = require('process');
 ```
 
+and change the build command
+``` bash
+hugo && node scripts/pushIndexNow.js --push
+```
 
 ### Notes
 
 * Dry-run only prints new URLs
+
+* Ensure `sitemap.xml` file is created, then run the script
 
 * Ensure IndexNow key file is deployed: `https://www.example.com/<INDEXNOW_KEY>.txt`
 

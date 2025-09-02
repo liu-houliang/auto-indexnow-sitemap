@@ -74,9 +74,16 @@ const fs = require('fs');
 const process = require('process');
 ```
 
+然后修改构建语句为：
+``` bash
+hugo && node scripts/pushIndexNow.js --push
+```
+
 ### 注意事项
 
 * 本地 `--check` 只打印新增 URL，不会发送请求
+
+* 确保 sitemap 文件已生成，再运行脚本
 
 * 确保 IndexNow key 文件已部署：
  `https://www.example.com/<INDEXNOW_KEY>.txt`
