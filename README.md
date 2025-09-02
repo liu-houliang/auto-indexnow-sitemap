@@ -56,6 +56,21 @@ node scripts/pushIndexNow.js --push
 }
 ```
 
+### Integration with Hugo
+
+if your project does not have `package.json`, such as `hugo`, you need to change the import statement to the following:
+
+``` js
+// original
+import fs from 'fs';
+import process from 'process';
+
+// change to
+const fs = require('fs');
+const process = require('process');
+```
+
+
 ### Notes
 
 * Dry-run only prints new URLs

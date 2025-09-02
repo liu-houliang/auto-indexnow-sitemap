@@ -61,6 +61,19 @@ node scripts/pushIndexNow.js --push
 }
 ```
 
+### 集成到 Hugo
+
+如果是没有 `package.json `的 `hugo` 项目，需要修改js代码：
+``` js
+// original
+import fs from 'fs';
+import process from 'process';
+
+// change to
+const fs = require('fs');
+const process = require('process');
+```
+
 ### 注意事项
 
 * 本地 `--check` 只打印新增 URL，不会发送请求
