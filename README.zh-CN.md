@@ -4,9 +4,13 @@
 ### 功能
 
 - 自动读取本地 sitemap.xml
+
 - 获取线上旧 sitemap.xml
+
 - 对比差异，增量推送新增页面到 Bing IndexNow
+
 - 支持 `--check` 模拟测试，不发送请求
+
 - 支持大批量分块提交，避免一次性推送过多 URL
 
 ### 获取IndexNow Key

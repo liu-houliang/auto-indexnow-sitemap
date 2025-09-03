@@ -6,15 +6,21 @@ English | [简体中文](README.zh-CN.md)
 ### Features
 
 * Automatically read local `sitemap.xml`
+
 * Fetch online old sitemap.xml
+
 * Compare differences and push only new pages to Bing IndexNow
+
 * Supports `--check` dry-run to preview new URLs
+
 * Chunked submissions for large sites
 
 ### Get IndexNow Key
 
 1. Open [Bing IndexNow](https://www.bing.com/indexnow/getstarted)
+
 2. Download the API key (the content is the key itself)
+
 3. Upload it to your website root, e.g.: `https://www.example.com/<YOUR_INDEXNOW_KEY>.txt`
 
 
